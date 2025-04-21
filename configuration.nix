@@ -54,5 +54,6 @@
       # managed by homebrew now
       "slack"
     ];
+    onActivation.cleanup = "zap";
   };
 }
