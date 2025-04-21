@@ -27,4 +27,32 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  homebrew = {
+    enable = true;
+    brews = [
+      # "bash"
+      # "coreutils"
+      # "go"
+      # "ncurses"
+      # "pkgconf"
+      # "readline"
+      # "xz"
+      # "ca-certificates"
+      # "gmp"
+      # "mpdecimal"
+      # "openssl@3"
+      # "python@3.11"
+      # "sqlite"
+    ];
+    casks = [
+      "google-chrome"
+      "font-fira-code-nerd-font"
+      "font-hack-nerd-font"
+      "postman"
+
+      # managed by homebrew now
+      "slack"
+    ];
+  };
 }
