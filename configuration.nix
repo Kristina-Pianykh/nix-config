@@ -1,6 +1,8 @@
 {
   self,
   pkgs,
+  user,
+  system,
   ...
 }: {
   # List packages installed in system profile. To search by name, run:
@@ -15,6 +17,13 @@
     enable = false;
   };
 
+  users = {
+    users.${user} = {
+      home = "/Users/${user}";
+      name = "${user}";
+    };
+  };
+
   # Enable alternative shell support in nix-darwin.
   # programs.fish.enable = true;
 
@@ -26,7 +35,7 @@
   system.stateVersion = 6;
 
   # The platform the configuration will be used on.
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = system;
 
   homebrew = {
     enable = true;
