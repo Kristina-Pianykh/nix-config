@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +23,7 @@
     self,
     nix-darwin,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     mac-app-util,
     nixgl,
@@ -48,6 +50,7 @@
       config.allowUnfreePredicate = pkg:
         builtins.elem (nixpkgs.lib.getName pkg) allowed_unfree_packages;
     };
+    pkgsUnstable = import nixpkgs-unstable {inherit system;};
     user = "kristina.pianykh@goflink.com";
   in {
     # Build darwin flake using:
@@ -74,7 +77,8 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
             extraSpecialArgs = {
-              inherit self inputs pkgs system user;
+              inherit self inputs pkgs system user; # question: why pkgsUnstable is not available as attribute of inputs in hm?
+              pkgs-unstable = pkgsUnstable;
             };
           };
         }
@@ -90,6 +94,7 @@
       ];
       specialArgs = {
         inherit self inputs system user;
+        pkgs-unstable = pkgsUnstable;
       };
     };
   };

@@ -168,13 +168,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1746332716,
+        "narHash": "sha256-VBmKSkmw9PYBCEGhBKzORjx+nwNZkPZyHcUHE21A/ws=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6b1c028bce9c89e9824cde040d6986d428296055",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1746356478,
-        "narHash": "sha256-ioNwJtrKULA6MH8fL4uWYmAwhAgWex5nrYzd8KrDVYo=",
+        "lastModified": 1746429510,
+        "narHash": "sha256-X4ENCLWA+WAnjSVFnZcz/OmMHYHnkLivP7iK77q4ok4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "885b3f30fd47a0272c3344b05192645b8059ddeb",
+        "rev": "ad3a062c7b9e752e52a43f5160f1b6b0ed66c502",
         "type": "github"
       },
       "original": {
@@ -190,7 +206,8 @@
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
         "nixgl": "nixgl",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {
