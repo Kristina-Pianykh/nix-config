@@ -1,6 +1,7 @@
-{...}: {
+{pkgs-unstable, ...}: {
   programs.yazi = {
     enable = true;
+    package = pkgs-unstable.yazi;
     settings = {
       manager = {
         ratio = [1 2 4];

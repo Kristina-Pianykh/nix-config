@@ -10,6 +10,7 @@
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin];
 in {
   _module.args = {
+    inherit pkgs-unstable;
     sshWorkHostAlias = "work";
   };
 
@@ -99,9 +100,10 @@ in {
       kubectl
       htop
       fswatch
-      # deno # for markdown preview peek in neovim
+      deno # for markdown preview peek in neovim
       nixd
       yaml-language-server
+      vscode-langservers-extracted
 
       # flink related
       protobuf
