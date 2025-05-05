@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: let
   # username = "kristina.pianykh@goflink.com";
   # the use of homeDirectory https://github.com/nix-community/home-manager/issues/6036#issuecomment-2466986456
   # homeDirectory = "/Users/${user}";
@@ -101,7 +105,7 @@ in {
 
       # flink related
       protobuf
-      golangci-lint
+      pkgs-unstable.golangci-lint
       golangci-lint-langserver
       nilaway
 
