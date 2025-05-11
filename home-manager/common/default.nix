@@ -30,57 +30,67 @@ in {
       #joypixels
       rustup
       ripgrep
-      poetry
-      uv
-      tree
-      jdk
+      fd # extends capabilities of rg
       fzf
+      tree
       jq
       docker
       docker-compose
-      tflint
-      terraform
-      go
-      gopls
-      gotools
-      golangci-lint
-      golangci-lint-langserver
-      maven
-      fd # extends capabilities of rg
-      pyright
-      lua-language-server
-      lua54Packages.luacheck
-      java-language-server
-      jdt-language-server
-      vimPlugins.nvim-jdtls
       ccls
       # python311Packages.compiledb
-      google-java-format
       prettierd
-      stylua
       astyle
-      ruff
-      alejandra
-      nodejs_22
-      terraform-ls
       sops
-      python311Packages.ipython
       openssl
       netcat-gnu
-      python311Packages.ipython
       (bats.withLibraries (p: [p.bats-assert]))
-      parallel
       pkgsUnstable.hugo
       rclone
       codecrafters-cli
-      # inotify-tools # archie
-      # fswatch # darwin
-      nixd
       yaml-language-server
       vscode-langservers-extracted
       vscode
       neovim
       htop
+
+      # Terraform
+      terraform-ls
+      terraform
+      tflint
+
+      # Go
+      pkgsUnstable.golangci-lint
+      golangci-lint-langserver
+      gotools
+      gopls
+      go
+
+      # Python
+      python311Packages.ipython
+      poetry
+      pyright
+      ruff
+      uv
+
+      # Lua
+      lua54Packages.luacheck
+      lua-language-server
+      stylua
+
+      # Java
+      vimPlugins.nvim-jdtls
+      java-language-server
+      jdt-language-server
+      google-java-format
+      maven
+      jdk
+
+      # Nix
+      nixd
+      alejandra
+
+      # JS
+      nodejs_22
       deno # for markdown preview peek in neovim
 
       # (writeShellApplication {
