@@ -10,7 +10,7 @@
     enableZshIntegration = true;
     # installVimSyntax = true;
     settings = {
-      theme = "dark:rose-pine";
+      theme = "rose-pine";
       fullscreen = "true";
       font-family = "FiraCode Nerd Font";
       font-size = 14;
