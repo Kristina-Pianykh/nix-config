@@ -9,6 +9,7 @@
   ...
 }: let
   homeDirectory = "/home/${username}";
+  nixConfDir = "${config.xdg.configHome}/nix-config";
   nullPackage = name: pkgs.writeShellScriptBin name "";
 in {
   imports = [
@@ -22,7 +23,8 @@ in {
       inotify-tools # archie
     ];
     shellAliases = {
-      nix-rebuild = "home-manager switch --flake '${config.xdg.configHome}/nix-config#krispian'";
+      nix-rebuild = "home-manager switch --flake '${nixConfDir}#krispian'";
+      nix-conf = "cd ${nixConfDir} && nvim .";
     };
   };
 

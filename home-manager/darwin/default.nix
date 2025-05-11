@@ -9,6 +9,7 @@
   ...
 }: let
   sshWorkHostAlias = "work";
+  nixConfDir = "/private/etc/nix-darwin";
   nullPackage = name: pkgs.writeShellScriptBin name "";
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin];
 in {
@@ -37,7 +38,8 @@ in {
 
     shellAliases = {
       f = "cd ~/flink";
-      nix-rebuild = "darwin-rebuild switch --flake '/private/etc/nix-darwin#flink'";
+      nix-rebuild = "darwin-rebuild switch --flake '${nixConfDir}#flink'";
+      nix-conf = "cd ${nixConfDir} && nvim .";
     };
   };
 
