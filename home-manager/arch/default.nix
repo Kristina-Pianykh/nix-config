@@ -13,13 +13,11 @@
 in {
   imports = [
     ../common/default.nix
-    ./ghostty.nix
     ./systemd.nix
   ];
 
-  home = rec {
+  home = {
     inherit username homeDirectory;
-    stateVersion = homeManagerStateVersion;
     packages = with pkgs; [
       inotify-tools # archie
     ];
@@ -36,7 +34,7 @@ in {
     };
   };
 
-  programs.ghostty.keybind = [
+  programs.ghostty.settings.keybind = [
     "alt+enter=new_split:auto"
     "alt+d=close_surface"
     "alt+k=goto_split:top"
