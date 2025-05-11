@@ -42,7 +42,6 @@ in {
     "alt+h=goto_split:left"
     "alt+l=goto_split:right"
     "alt+t=new_tab"
-    "ctrl+tab=next_tab"
   ];
 
   programs.git = {

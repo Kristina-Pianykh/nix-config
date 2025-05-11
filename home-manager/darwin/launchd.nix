@@ -23,7 +23,7 @@
   };
 
   launchd = {
-    enable = true;
+    enable = false;
     agents."dev.kristina.watcher.plist" = {
       enable = false;
       config = {

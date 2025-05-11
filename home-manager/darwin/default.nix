@@ -1,0 +1,90 @@
+{
+  config,
+  pkgs,
+  pkgsUnstable,
+  lib,
+  inputs,
+  username,
+  homeManagerStateVersion,
+  ...
+}: let
+  sshWorkHostAlias = "work";
+  nullPackage = name: pkgs.writeShellScriptBin name "";
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin];
+in {
+  # _module.args = {
+  #   sshWorkHostAlias = "work";
+  # };
+
+  imports = [
+    ../common/default.nix
+    ./launchd.nix
+  ];
+
+  news.display = "silent";
+  home = {
+    packages = with pkgs; [
+      fswatch
+
+      # flink related
+      podman
+      gcloud
+      kubectl
+      protobuf
+      nilaway
+    ];
+  };
+
+  programs.zsh.initExtra = ''
+    export GOPRIVATE=github.com/goflink/*
+
+    export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+    homebrewPath="/opt/homebrew/bin"
+    export PATH="$homebrewPath:$PATH"
+  '';
+
+  programs.kitty = {
+    keybindings = {
+      "super+enter" = "new_window_with_cwd";
+      "super+d" = "close_window";
+      "super+j" = "next_window";
+      "super+k" = "previous_window";
+      "super+s" = "next_layout";
+    };
+  };
+
+  programs.ghostty.keybind = [
+    "super+enter=new_split:auto"
+    "super+d=close_surface"
+    "super+k=goto_split:top"
+    "super+j=goto_split:bottom"
+    "super+h=goto_split:left"
+    "super+l=goto_split:right"
+    "super+t=new_tab"
+    "ctrl+tab=next_tab"
+  ];
+
+  programs.git = {
+    userEmail = "kristina.pianykh@goflink.com";
+    extraConfig.url = {
+      "git@${sshWorkHostAlias}:goflink" = {
+        # TODO: reference from ssh.nix
+        insteadOf = "https://github.com/goflink";
+      };
+    };
+  };
+
+  programs.ssh.matchBlocks = {
+    "${sshWorkHostAlias}" = {
+      host = sshWorkHostAlias;
+      hostname = "github.com";
+      identitiesOnly = true;
+      identityFile = "${config.home.homeDirectory}/.ssh/${sshWorkHostAlias}";
+      extraOptions = {
+        AddKeysToAgent = "yes";
+        UseKeychain = "yes";
+      };
+    };
+  };
+}
