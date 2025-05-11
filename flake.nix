@@ -75,6 +75,7 @@
         }
       )
       buildInputs;
+    homeManagerStateVersion = "24.11";
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#flink
@@ -101,19 +102,19 @@
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
               extraSpecialArgs = {
-                inherit self inputs system user pkgs pkgsUnstable;
+                inherit self inputs system user pkgs pkgsUnstable homeManagerStateVersion;
               };
             };
           }
           # We expose some extra arguments so that our modules can parameterize
           # better based on these values.
-          {
-            config._module.args = {
-              inherit inputs;
-              currentSystem = system;
-              currentSystemUser = user;
-            };
-          }
+          # {
+          #   config._module.args = {
+          #     inherit inputs;
+          #     currentSystem = system;
+          #     currentSystemUser = user;
+          #   };
+          # }
         ];
         specialArgs = {
           inherit self inputs system user pkgsUnstable; # pass pkgs as well?
@@ -125,13 +126,14 @@
         inherit pkgs;
         extraSpecialArgs = {
           username = user;
-          inherit inputs pkgsUnstable;
+          inherit inputs pkgsUnstable homeManagerStateVersion;
         };
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          ./home-manager-arch/home.nix
+          ./home-manager/arch/default.nix
+          # ./home-manager-arch/home.nix
           sops-nix.homeManagerModules.sops
         ];
         # Optionally use extraSpecialArgs

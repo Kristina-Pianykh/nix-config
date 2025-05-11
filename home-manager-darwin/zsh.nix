@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     autosuggestion.enable = false; # unstable
@@ -22,15 +26,6 @@
 
       homebrewPath="/opt/homebrew/bin"
       export PATH="$homebrewPath:$PATH"
-
-      function y() {
-        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-        yazi "$@" --cwd-file="$tmp"
-        if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-          builtin cd -- "$cwd"
-        fi
-        rm -f -- "$tmp"
-      }
     '';
 
     prezto = {
