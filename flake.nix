@@ -96,7 +96,7 @@
               users.${user} = {
                 imports = [
                   mac-app-util.homeManagerModules.default
-                  ./home-manager/home.nix
+                  ./home-manager/darwin/default.nix
                 ];
               };
               # Optionally, use home-manager.extraSpecialArgs to pass
@@ -133,7 +133,6 @@
         # the path to your home.nix.
         modules = [
           ./home-manager/arch/default.nix
-          # ./home-manager-arch/home.nix
           sops-nix.homeManagerModules.sops
         ];
         # Optionally use extraSpecialArgs

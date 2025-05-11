@@ -12,10 +12,6 @@
   nullPackage = name: pkgs.writeShellScriptBin name "";
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin];
 in {
-  # _module.args = {
-  #   sshWorkHostAlias = "work";
-  # };
-
   imports = [
     ../common/default.nix
     ./launchd.nix
@@ -32,7 +28,17 @@ in {
       kubectl
       protobuf
       nilaway
+      pkgsUnstable.devenv
+      gh
+      teller
+      temporal
+      temporal-cli
     ];
+
+    shellAliases = {
+      f = "cd ~/flink";
+      nix-rebuild = "darwin-rebuild switch --flake '/private/etc/nix-darwin#flink'";
+    };
   };
 
   programs.zsh.initExtra = ''
@@ -54,7 +60,7 @@ in {
     };
   };
 
-  programs.ghostty.keybind = [
+  programs.ghostty.settings.keybind = [
     "super+enter=new_split:auto"
     "super+d=close_surface"
     "super+k=goto_split:top"
@@ -69,7 +75,6 @@ in {
     userEmail = "kristina.pianykh@goflink.com";
     extraConfig.url = {
       "git@${sshWorkHostAlias}:goflink" = {
-        # TODO: reference from ssh.nix
         insteadOf = "https://github.com/goflink";
       };
     };
