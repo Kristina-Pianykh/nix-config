@@ -21,6 +21,9 @@ in {
     packages = with pkgs; [
       inotify-tools # archie
     ];
+    shellAliases = {
+      nix-rebuild = "home-manager switch --flake '${config.xdg.configHome}/nix-config#krispian'";
+    };
   };
 
   programs.kitty = {
