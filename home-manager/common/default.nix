@@ -38,8 +38,6 @@ in {
       docker-compose
       ccls
       # python311Packages.compiledb
-      prettierd
-      astyle
       sops
       openssl
       netcat-gnu
@@ -47,11 +45,19 @@ in {
       pkgsUnstable.hugo
       rclone
       codecrafters-cli
-      yaml-language-server
-      vscode-langservers-extracted
       vscode
       neovim
       htop
+
+      # Yaml
+      yaml-language-server
+
+      # Json
+      prettierd
+      vscode-langservers-extracted
+
+      # C
+      astyle
 
       # Terraform
       terraform-ls
@@ -62,6 +68,7 @@ in {
       pkgsUnstable.golangci-lint
       golangci-lint-langserver
       gotools
+      nilaway
       gopls
       go
 
