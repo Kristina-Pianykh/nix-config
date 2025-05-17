@@ -88,6 +88,7 @@ in {
       # Nix
       nixd
       alejandra
+      nixfmt-rfc-style
 
       # JS
       nodejs_22
