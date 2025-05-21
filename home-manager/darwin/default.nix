@@ -7,12 +7,16 @@
   username,
   homeManagerStateVersion,
   ...
-}: let
+}:
+let
   sshWorkHostAlias = "work";
   nixConfDir = "/private/etc/nix-darwin";
   nullPackage = name: pkgs.writeShellScriptBin name "";
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin];
-in {
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
+    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  ];
+in
+{
   imports = [
     ../common/default.nix
     ./launchd.nix
@@ -76,13 +80,33 @@ in {
   programs.git = {
     userEmail = "kristina.pianykh@goflink.com";
     extraConfig.url = {
+      "git@github.com:goflink" = {
+        insteadOf = "https://github.com/goflink";
+      };
+    };
+    extraConfig.url = {
       "git@${sshWorkHostAlias}:goflink" = {
         insteadOf = "https://github.com/goflink";
       };
     };
+    # extraConfig.url = {
+    #   "git@github.com" = {
+    #     insteadOf = "https://github.com";
+    #   };
+    # };
   };
 
   programs.ssh.matchBlocks = {
+    "github.com" = {
+      host = "github.com";
+      hostname = "github.com";
+      identitiesOnly = true;
+      identityFile = "${config.home.homeDirectory}/.ssh/${sshWorkHostAlias}";
+      extraOptions = {
+        AddKeysToAgent = "yes";
+        UseKeychain = "yes";
+      };
+    };
     "${sshWorkHostAlias}" = {
       host = sshWorkHostAlias;
       hostname = "github.com";
