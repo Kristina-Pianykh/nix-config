@@ -21,6 +21,7 @@ in {
     inherit username homeDirectory;
     packages = with pkgs; [
       inotify-tools # archie
+      calibre
     ];
     shellAliases = {
       nix-rebuild = "home-manager switch --flake '${nixConfDir}#krispian'";
