@@ -7,10 +7,12 @@
   username,
   homeManagerStateVersion,
   ...
-}: let
+}:
+let
   # homeDirectory = "/home/${username}";
   nullPackage = name: pkgs.writeShellScriptBin name "";
-in {
+in
+{
   imports = [
     ./zsh.nix
     ./kitty.nix
@@ -41,7 +43,7 @@ in {
       sops
       openssl
       netcat-gnu
-      (bats.withLibraries (p: [p.bats-assert]))
+      (bats.withLibraries (p: [ p.bats-assert ]))
       pkgsUnstable.hugo
       rclone
       codecrafters-cli
@@ -101,6 +103,8 @@ in {
       nodejs_22
       deno # for markdown preview peek in neovim
 
+      podman
+
       # (writeShellApplication {
       #   name = "show-nixos-org";
       #
@@ -143,6 +147,7 @@ in {
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.pyenv = {

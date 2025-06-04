@@ -39,6 +39,7 @@
       allowed_unfree_packages = [
         "terraform"
         "vscode"
+        "ngrok"
       ];
 
       # workaround for the issue: https://github.com/NixOS/nixpkgs/issues/402079

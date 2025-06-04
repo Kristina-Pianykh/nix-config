@@ -28,16 +28,17 @@ in
       fswatch
 
       # flink related
-      podman
+      # podman
       gcloud
       kubectl
-      protobuf
+      # protobuf
       nilaway
       pkgsUnstable.devenv
       gh
       teller
       temporal
       temporal-cli
+      ngrok
     ];
 
     shellAliases = {
