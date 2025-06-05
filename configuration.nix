@@ -33,6 +33,8 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
 
+  system.primaryUser = "kristina.pianykh@goflink.com";
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = system;
 
