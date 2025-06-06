@@ -35,6 +35,7 @@ in
       # protobuf
       nilaway
       pkgsUnstable.devenv
+      devbox
       gh
       teller
       temporal
@@ -44,7 +45,7 @@ in
 
     shellAliases = {
       f = "cd ~/flink";
-      nix-rebuild = "darwin-rebuild switch --flake '${nixConfDir}#flink'";
+      nix-rebuild = "sudo darwin-rebuild switch --flake '${nixConfDir}#flink'";
       nix-conf = "cd ${nixConfDir} && nvim .";
     };
   };
