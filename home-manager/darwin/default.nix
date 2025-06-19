@@ -41,6 +41,7 @@ in
       temporal
       temporal-cli
       ngrok
+      presenterm
     ];
 
     shellAliases = {
@@ -97,6 +98,16 @@ in
     #     insteadOf = "https://github.com";
     #   };
     # };
+  };
+
+  programs.starship = {
+    settings = {
+      gcloud.format = "on [$symbol$project]($style) ";
+      gcloud.project_aliases = {
+        "flink-core-shared" = "shared";
+        "flink-core-staging" = "staging";
+      };
+    };
   };
 
   programs.ssh.matchBlocks = {
