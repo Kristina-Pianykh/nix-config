@@ -101,7 +101,6 @@ in
 
       # JS
       nodejs_22
-      deno # for markdown preview peek in neovim
 
       podman
 
