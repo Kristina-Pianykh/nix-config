@@ -42,15 +42,6 @@
         "ngrok"
       ];
 
-      # workaround for the issue: https://github.com/NixOS/nixpkgs/issues/402079
-      # nodeOverlay = final: prev: {
-      #   nodejs = prev.nodejs_22;
-      #   nodejs-slim = prev.nodejs-slim_22;
-      #
-      #   nodejs_20 = prev.nodejs_22;
-      #   nodejs-slim_20 = prev.nodejs-slim_22;
-      # };
-
       buildInputs = {
         darwin = {
           system = "aarch64-darwin";

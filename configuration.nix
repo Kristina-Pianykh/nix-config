@@ -41,21 +41,6 @@
 
   homebrew = {
     enable = true;
-    brews = [
-      # "bash"
-      # "coreutils"
-      # "go"
-      # "ncurses"
-      # "pkgconf"
-      # "readline"
-      # "xz"
-      # "ca-certificates"
-      # "gmp"
-      # "mpdecimal"
-      # "openssl@3"
-      # "python@3.11"
-      # "sqlite"
-    ];
     casks = [
       "google-chrome"
       "font-fira-code-nerd-font"
