@@ -27,7 +27,6 @@ in
     # inherit username homeDirectory;
     stateVersion = homeManagerStateVersion;
     packages = with pkgs; [
-      lsd
       bat
       #joypixels
       rustup
@@ -123,8 +122,6 @@ in
     shellAliases = {
       # nvim = "NVIM_APPNAME=neovim-config ${pkgs.neovim}/bin/nvim";
       hs = "home-manager switch";
-      ls = "lsd -la";
-      lsd = "lsd -la";
       rm = "rm -f";
       home = "cd ~/.config/home-manager && $EDITOR .";
       ipython = "ipython3";
@@ -134,6 +131,13 @@ in
   };
 
   #fonts.fontconfig.enable = true;
+
+  programs.lsd = {
+    enable = true;
+    settings = {
+      sorting.dir-grouping = "first";
+    };
+  };
 
   programs.starship = {
     enable = true;
