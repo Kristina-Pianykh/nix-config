@@ -11,10 +11,27 @@
 let
   # homeDirectory = "/home/${username}";
   nullPackage = name: pkgs.writeShellScriptBin name "";
+  shellAliases = {
+    # nvim = "NVIM_APPNAME=neovim-config ${pkgs.neovim}/bin/nvim";
+    hs = "home-manager switch";
+    rm = "rm -f";
+    ls = lib.mkForce "${pkgs.lsd}/bin/lsd -la";
+    home = "cd ~/.config/home-manager && $EDITOR .";
+    ipython = "ipython3";
+    gl = "${./git_log_alias.sh}";
+    gst = "git status";
+  };
 in
 {
   imports = [
-    ./zsh.nix
+    (import ./zsh.nix {
+      inherit
+        shellAliases
+        config
+        pkgs
+        lib
+        ;
+    })
     ./kitty.nix
     ./ghostty.nix
     ./git.nix
@@ -118,30 +135,9 @@ in
       EDITOR = "nvim";
       JAVA_HOME = pkgs.jdk;
     };
-
-    shellAliases = {
-      # nvim = "NVIM_APPNAME=neovim-config ${pkgs.neovim}/bin/nvim";
-      hs = "home-manager switch";
-      rm = "rm -f";
-      home = "cd ~/.config/home-manager && $EDITOR .";
-      ipython = "ipython3";
-      gl = "${./git_log_alias.sh}";
-      gst = "git status";
-    };
   };
 
   #fonts.fontconfig.enable = true;
-
-  programs.lsd = {
-    enable = true;
-    settings = {
-      sorting.dir-grouping = "first";
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-  };
 
   programs.direnv = {
     enable = true;
