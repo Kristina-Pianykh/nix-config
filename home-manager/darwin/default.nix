@@ -31,7 +31,7 @@ in
       # podman
       gcloud
       kubectl
-      kubernetes-helm
+      pkgsUnstable.kubernetes-helm
       # protobuf
       nilaway
       pkgsUnstable.devenv
