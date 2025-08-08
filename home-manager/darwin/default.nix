@@ -107,6 +107,14 @@ in
         "flink-core-shared" = "shared";
         "flink-core-staging" = "staging";
       };
+      custom.kubectl = {
+        when = "kubectl config current-context";
+        command = "kubectl config current-context | awk -F'-' '{print $NF}'";
+        format = "on [$symbol$output]($style) ";
+        style = "bold green";
+        # symbol = "☸️ ";
+        symbol = "⎈ ";
+      };
     };
   };
 
