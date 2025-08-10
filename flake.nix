@@ -40,6 +40,7 @@
         "terraform"
         "vscode"
         "ngrok"
+        "obsidian"
       ];
 
       buildInputs = {

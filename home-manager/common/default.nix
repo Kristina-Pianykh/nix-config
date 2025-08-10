@@ -66,6 +66,8 @@ in
       vscode
       neovim
       htop
+      podman
+      obsidian
 
       # Yaml
       yaml-language-server
@@ -118,7 +120,6 @@ in
       # JS
       nodejs_22
 
-      podman
 
       # (writeShellApplication {
       #   name = "show-nixos-org";
