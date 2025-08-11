@@ -71,6 +71,7 @@ in
 
       # Yaml
       yaml-language-server
+      yq
 
       # Json
       prettierd
@@ -120,6 +121,7 @@ in
       # JS
       nodejs_22
 
+      pkg-config
 
       # (writeShellApplication {
       #   name = "show-nixos-org";
@@ -144,6 +146,9 @@ in
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+    config = {
+      load_dotenv = true;
+    };
   };
 
   programs.pyenv = {

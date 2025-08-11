@@ -42,6 +42,8 @@ in
       temporal-cli
       ngrok
       presenterm
+      k6
+      pkgsUnstable.gemini-cli
     ];
 
     shellAliases = {
@@ -51,14 +53,18 @@ in
     };
   };
 
-  programs.zsh.initExtra = ''
-    export GOPRIVATE=github.com/goflink/*
+  # programs.zsh.initExtra = ''
+  programs.zsh.initContent = lib.mkMerge [
+    (lib.mkBefore ''
+      export GOPRIVATE=github.com/goflink/*
 
-    export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+      export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
-    homebrewPath="/opt/homebrew/bin"
-    export PATH="$homebrewPath:$PATH"
-  '';
+      homebrewPath="/opt/homebrew/bin"
+      export PATH="$homebrewPath:$PATH"
+      # export GOOGLE_CLOUD_PROJECT=flink-gemini-sandbox
+    '')
+  ];
 
   programs.kitty = {
     keybindings = {
