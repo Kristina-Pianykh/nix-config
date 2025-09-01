@@ -32,7 +32,9 @@ in
       gcloud
       kubectl
       pkgsUnstable.kubernetes-helm
-      # protobuf
+      protobuf
+      protoc-gen-go
+      protoc-gen-go-grpc
       nilaway
       pkgsUnstable.devenv
       devbox
@@ -44,6 +46,8 @@ in
       presenterm
       k6
       pkgsUnstable.gemini-cli
+      kustomize
+      kind
     ];
 
     shellAliases = {
@@ -62,7 +66,7 @@ in
 
       homebrewPath="/opt/homebrew/bin"
       export PATH="$homebrewPath:$PATH"
-      # export GOOGLE_CLOUD_PROJECT=flink-gemini-sandbox
+      export GOOGLE_CLOUD_PROJECT=flink-gemini-sandbox
     '')
   ];
 
