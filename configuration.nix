@@ -46,6 +46,8 @@
       "font-fira-code-nerd-font"
       "font-hack-nerd-font"
       "postman"
+      "amneziavpn"
+      "brave-browser"
 
       # managed by homebrew now
       "slack"
