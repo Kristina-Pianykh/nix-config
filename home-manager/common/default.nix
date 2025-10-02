@@ -122,6 +122,7 @@ in
       nodejs_22
 
       pkg-config
+      codex
 
       # (writeShellApplication {
       #   name = "show-nixos-org";
