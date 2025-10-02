@@ -92,6 +92,7 @@ in
       nilaway
       gopls
       go
+      gotestfmt
 
       # Python
       python311Packages.ipython
