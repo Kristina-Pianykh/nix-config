@@ -4,17 +4,14 @@
   ...
 }:
 {
-  programs.aerospace = {
-    enable = true;
-  };
-  programs.aerospace.launchd.enable = true;
+  programs.aerospace.enable = true;
   programs.aerospace.userSettings = {
     # You can use it to add commands that run after AeroSpace startup.
     # Available commands : https://nikitabobko.github.io/AeroSpace/commands
     after-startup-command = [ ];
 
     # Start AeroSpace at login
-    # start-at-login = true;
+    start-at-login = true;
 
     # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
     enable-normalization-flatten-containers = true;
@@ -62,10 +59,10 @@
       vertical = 0;
     };
     gaps.outer = {
-      left = 5;
-      bottom = 5;
-      top = 5;
-      right = 5;
+      left = 0;
+      bottom = 0;
+      top = 0;
+      right = 0;
     };
 
     # 'main' binding mode declaration
@@ -130,66 +127,9 @@
       "cmd-7" = "workspace 7";
       "cmd-8" = "workspace 8";
       "cmd-9" = "workspace 9";
-      # alt-a = "workspace A"; # In your config, you can drop workspace bindings that you don't need
-      # alt-b = "workspace B";
-      # alt-c = "workspace C";
-      # alt-d = "workspace D";
-      # alt-e = "workspace E";
-      # alt-f = "workspace F";
-      # alt-g = "workspace G";
-      # alt-i = "workspace I";
-      # alt-m = "workspace M";
-      # alt-n = "workspace N";
-      # alt-o = "workspace O";
-      # alt-p = "workspace P";
-      # alt-q = "workspace Q";
-      # alt-r = "workspace R";
-      # alt-s = "workspace S";
-      # alt-t = "workspace T";
-      # alt-u = "workspace U";
-      # alt-v = "workspace V";
-      # alt-w = "workspace W";
-      # alt-x = "workspace X";
-      # alt-y = "workspace Y";
-      # alt-z = "workspace Z";
-
-      # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-      alt-shift-1 = "move-node-to-workspace 1";
-      alt-shift-2 = "move-node-to-workspace 2";
-      alt-shift-3 = "move-node-to-workspace 3";
-      alt-shift-4 = "move-node-to-workspace 4";
-      alt-shift-5 = "move-node-to-workspace 5";
-      alt-shift-6 = "move-node-to-workspace 6";
-      alt-shift-7 = "move-node-to-workspace 7";
-      alt-shift-8 = "move-node-to-workspace 8";
-      alt-shift-9 = "move-node-to-workspace 9";
-      alt-shift-a = "move-node-to-workspace A";
-      alt-shift-b = "move-node-to-workspace B";
-      alt-shift-c = "move-node-to-workspace C";
-      alt-shift-d = "move-node-to-workspace D";
-      alt-shift-e = "move-node-to-workspace E";
-      alt-shift-f = "move-node-to-workspace F";
-      alt-shift-g = "move-node-to-workspace G";
-      alt-shift-i = "move-node-to-workspace I";
-      alt-shift-m = "move-node-to-workspace M";
-      alt-shift-n = "move-node-to-workspace N";
-      alt-shift-o = "move-node-to-workspace O";
-      alt-shift-p = "move-node-to-workspace P";
-      alt-shift-q = "move-node-to-workspace Q";
-      alt-shift-r = "move-node-to-workspace R";
-      alt-shift-s = "move-node-to-workspace S";
-      alt-shift-t = "move-node-to-workspace T";
-      alt-shift-u = "move-node-to-workspace U";
-      alt-shift-v = "move-node-to-workspace V";
-      alt-shift-w = "move-node-to-workspace W";
-      alt-shift-x = "move-node-to-workspace X";
-      alt-shift-y = "move-node-to-workspace Y";
-      alt-shift-z = "move-node-to-workspace Z";
 
       # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
       alt-tab = "workspace-back-and-forth";
-      # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-      alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
       # See: https://nikitabobko.github.io/AeroSpace/commands#mode
       alt-shift-semicolon = "mode service";
@@ -234,37 +174,35 @@
         "join-with right"
         "mode main"
       ];
-
-      down = "volume down";
-      up = "volume up";
-      shift-down = [
-        "volume set 0"
-        "mode main"
-      ];
     };
+
     on-window-detected = [
       {
         "if".app-id = "com.google.Chrome";
         run = [
+          "layout tiling"
           "move-node-to-workspace 1"
-          "layout floating"
-          "fullscreen"
         ];
       }
       {
         "if".app-id = "net.kovidgoyal.kitty";
         run = [
+          "layout tiling"
           "move-node-to-workspace 2"
-          "layout floating"
-          "fullscreen"
         ];
       }
       {
         "if".app-id = "com.tinyspeck.slackmacgap";
         run = [
+          "layout tiling"
           "move-node-to-workspace 3"
-          "layout floating"
-          "fullscreen"
+        ];
+      }
+      {
+        "if".app-id = "com.postmanlabs.mac";
+        run = [
+          "layout tiling"
+          "move-node-to-workspace 4"
         ];
       }
     ];

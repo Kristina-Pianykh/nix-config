@@ -20,6 +20,7 @@ in
   imports = [
     ../common/default.nix
     ./launchd.nix
+    ./aerospace.nix
   ];
 
   news.display = "silent";
@@ -48,6 +49,7 @@ in
       pkgsUnstable.gemini-cli
       kustomize
       kind
+      aerospace
     ];
 
     shellAliases = {
