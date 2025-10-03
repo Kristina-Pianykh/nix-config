@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   home.file."watcher.sh" = {
     text = ''
       #!/usr/bin/env sh
@@ -23,25 +24,25 @@
   };
 
   systemd.user = {
-    enable = false;
-    systemctlPath = "/usr/bin/systemctl";
-    services.rclone_keepass_gdrive_sync_hm = {
-      Unit = {
-        Description = "Syncs KeePass database to Google Drive on write";
-      };
-
-      Service = {
-        Type = "simple";
-        Restart = "always";
-        ExecStart = "%h/watcher.sh";
-        StandardOutput = "journal";
-        Environment = [
-          "PATH=${lib.makeBinPath [pkgs.bash pkgs.rclone pkgs.coreutils pkgs.inotify-tools]}"
-        ];
-      };
-      Install = {
-        WantedBy = ["default.target"];
-      };
-    };
+    enable = true;
+    # systemctlPath = "/usr/bin/systemctl";
+    # services.rclone_keepass_gdrive_sync_hm = {
+    #   Unit = {
+    #     Description = "Syncs KeePass database to Google Drive on write";
+    #   };
+    #
+    #   Service = {
+    #     Type = "simple";
+    #     Restart = "always";
+    #     ExecStart = "%h/watcher.sh";
+    #     StandardOutput = "journal";
+    #     Environment = [
+    #       "PATH=${lib.makeBinPath [pkgs.bash pkgs.rclone pkgs.coreutils pkgs.inotify-tools]}"
+    #     ];
+    #   };
+    #   Install = {
+    #     WantedBy = ["default.target"];
+    #   };
+    # };
   };
 }

@@ -6,6 +6,7 @@
   inputs,
   username,
   homeManagerStateVersion,
+  sops-nix,
   ...
 }:
 let
@@ -39,6 +40,15 @@ in
     ./ripgrep.nix
     ./yazi.nix
   ];
+  sops = {
+    age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
+    secrets.token = {
+      sopsFile = ./../../secrets/openai_api.yaml;
+    };
+    # templates."example_secrets".content = ''
+    #   token = "${config.sops.placeholder.token}"
+    # '';
+  };
 
   home = {
     # inherit username homeDirectory;
@@ -68,6 +78,7 @@ in
       htop
       podman
       obsidian
+      pkg-config
 
       # Yaml
       yaml-language-server
@@ -122,18 +133,17 @@ in
       # JS
       nodejs_22
 
-      pkg-config
-      codex
+      (writeShellApplication {
+        name = "codex";
 
-      # (writeShellApplication {
-      #   name = "show-nixos-org";
-      #
-      #   runtimeInputs = [curl w3m];
-      #
-      #   text = ''
-      #     curl -s 'https://nixos.org' | w3m -dump -T text/html
-      #   '';
-      # })
+        runtimeInputs = [ codex ];
+
+        text = ''
+          OPENAI_API_KEY="$(cat ${config.sops.secrets.token.path})"
+          export OPENAI_API_KEY
+          exec codex "$@"
+        '';
+      })
     ];
 
     sessionVariables = {
@@ -141,6 +151,8 @@ in
       JAVA_HOME = pkgs.jdk;
     };
   };
+
+  programs.bash.enable = true;
 
   #fonts.fontconfig.enable = true;
 

@@ -92,6 +92,7 @@
                 users.${user} = {
                   imports = [
                     mac-app-util.homeManagerModules.default
+                    inputs.sops-nix.homeManagerModules.sops
                     ./home-manager/darwin/default.nix
                   ];
                 };
