@@ -205,6 +205,13 @@
           "move-node-to-workspace 4"
         ];
       }
+      {
+        "if".app-id = "com.brave.Browser";
+        run = [
+          "layout tiling"
+          "move-node-to-workspace 5"
+        ];
+      }
     ];
   };
 }
