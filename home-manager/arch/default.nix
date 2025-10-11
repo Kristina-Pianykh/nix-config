@@ -102,6 +102,37 @@ in
     };
   };
 
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/wm/keybindings" = {
+        close = [ "<Alt>q" ];
+        switch-to-workspace-1 = ["<Alt>1"];
+        switch-to-workspace-2 = ["<Alt>2"];
+        switch-to-workspace-3 = ["<Alt>3"];
+        switch-to-workspace-4 = ["<Alt>4"];
+        switch-to-workspace-5 = ["<Alt>5"];
+        switch-to-workspace-6 = ["<Alt>6"];
+        switch-to-workspace-7 = ["<Alt>7"];
+        switch-to-workspace-8 = ["<Alt>8"];
+      };
+
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          "color-picker@tuberry"
+          "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+        ];
+      };
+      "org/gnome/shell/extensions/auto-move-windows" = {
+        application-list = [
+          "brave-browser.desktop:1"
+          "kitty.desktop:2"
+          "org.telegram.desktop.desktop:7"
+        ];
+      };
+    };
+  };
+
   xdg.enable = true;
   xdg.configFile."easyeffects/output/advanced-auto-gain.json".source =
     let
