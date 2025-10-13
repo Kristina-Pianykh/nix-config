@@ -48,6 +48,7 @@
       "postman"
       "amneziavpn"
       "brave-browser"
+      "zoom"
 
       # managed by homebrew now
       "slack"
