@@ -212,6 +212,13 @@
           "move-node-to-workspace 5"
         ];
       }
+      {
+        "if".app-id = "md.obsidian";
+        run = [
+          "layout tiling"
+          "move-node-to-workspace 6"
+        ];
+      }
     ];
   };
 }
