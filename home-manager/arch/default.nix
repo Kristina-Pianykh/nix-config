@@ -127,7 +127,7 @@ in
         application-list = [
           "brave-browser.desktop:1"
           "kitty.desktop:2"
-          "org.telegram.desktop.desktop:7"
+          "org.telegram.desktop.desktop:3"
         ];
       };
     };
