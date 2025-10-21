@@ -50,6 +50,7 @@ in
       kustomize
       kind
       aerospace
+      watch
     ];
 
     shellAliases = {
