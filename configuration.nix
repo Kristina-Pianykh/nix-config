@@ -49,6 +49,7 @@
       "amneziavpn"
       "brave-browser"
       "zoom"
+      "firefox"
 
       # managed by homebrew now
       "slack"
