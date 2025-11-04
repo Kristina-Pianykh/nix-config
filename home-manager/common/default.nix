@@ -80,6 +80,12 @@ in
       obsidian
       pkg-config
 
+      # Kubernetes
+      pkgsUnstable.kubernetes-helm
+      kustomize
+      kubectl
+      kind
+
       # Yaml
       yaml-language-server
       yq

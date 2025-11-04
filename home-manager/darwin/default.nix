@@ -31,8 +31,6 @@ in
       # flink related
       # podman
       gcloud
-      kubectl
-      pkgsUnstable.kubernetes-helm
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
@@ -47,8 +45,6 @@ in
       presenterm
       k6
       pkgsUnstable.gemini-cli
-      kustomize
-      kind
       aerospace
       watch
     ];
