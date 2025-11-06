@@ -47,6 +47,7 @@ in
       pkgsUnstable.gemini-cli
       aerospace
       watch
+      go-task
     ];
 
     shellAliases = {
