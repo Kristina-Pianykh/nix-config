@@ -48,6 +48,7 @@ in
       aerospace
       watch
       go-task
+      obsidian
     ];
 
     shellAliases = {

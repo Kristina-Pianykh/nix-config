@@ -77,7 +77,6 @@ in
       neovim
       htop
       podman
-      obsidian
       pkg-config
 
       # Kubernetes
