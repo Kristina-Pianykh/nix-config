@@ -39,6 +39,7 @@ in
       "Alt+j" = "next_window";
       "Alt+k" = "previous_window";
       "Alt+s" = "next_layout";
+      "Alt+t" = "new_tab";
     };
   };
 
