@@ -82,6 +82,7 @@ in
       # Kubernetes
       pkgsUnstable.kubernetes-helm
       kustomize
+      helm-ls
       kubectl
       kind
 
@@ -137,6 +138,8 @@ in
 
       # JS
       nodejs_22
+
+      vimPlugins.nvim-treesitter-parsers.gotmpl
 
       (writeShellApplication {
         name = "codex";
