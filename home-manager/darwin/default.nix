@@ -49,6 +49,47 @@ in
       watch
       go-task
       obsidian
+
+      (writeShellApplication {
+        name = "pr";
+
+        runtimeInputs = [
+          gh
+          git
+        ];
+
+        text = ''
+          cd "$PWD" || exit 1
+          BRANCH=$(git branch --show-current)
+
+          if [[ -z "$BRANCH" ]]; then
+            echo "Not on a branch. Please check out a branch first."
+            exit 1
+          fi
+
+          TICKET=$(echo "$BRANCH" | grep -oE '[A-Z]+-[0-9]+')
+
+          if [[ -z "$TICKET" ]]; then
+            echo "Error: Could not determine ticket ID"
+            exit 1
+          fi
+
+          TICKET_LINK="https://goflink.atlassian.net/browse/$TICKET"
+          FIRST_COMMIT_MESSAGE=$(git log main..HEAD --oneline --reverse --format=%s | head -n1)
+
+          if [[ -z "$FIRST_COMMIT_MESSAGE" ]]; then
+            echo "No commits on this branch that diverge from main."
+            exit 1
+          fi
+
+          gh pr create \
+            --title "[$TICKET]: $FIRST_COMMIT_MESSAGE" \
+            --body "[$TICKET]($TICKET_LINK)" \
+            --head "$BRANCH" \
+            --base main
+        '';
+      })
+
     ];
 
     shellAliases = {
