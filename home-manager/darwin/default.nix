@@ -114,11 +114,13 @@ in
 
   programs.kitty = {
     keybindings = {
+      "super+x" = "toggle_layout stack";
       "super+enter" = "new_window_with_cwd";
       "super+d" = "close_window";
       "super+j" = "next_window";
       "super+k" = "previous_window";
-      "super+s" = "next_layout";
+      "super+s" = "goto_layout vertical";
+      "super+a" = "goto_layout tall";
     };
   };
 
