@@ -24,6 +24,8 @@
         export GOPATH=$HOME/go
         export GOBIN=$HOME/go/bin
         export PATH="$GOBIN:$PATH"
+
+        export TEST_ASSET_ETCD="${pkgs.etcd}/bin/etcd"
       '')
 
       (lib.mkAfter ''
