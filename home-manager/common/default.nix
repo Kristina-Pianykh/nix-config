@@ -81,10 +81,13 @@ in
 
       # Kubernetes
       pkgsUnstable.kubernetes-helm
+      kubernetes
       kustomize
+      vcluster
       helm-ls
       kubectl
       kind
+      etcd
 
       # Yaml
       yaml-language-server
@@ -107,6 +110,7 @@ in
       golangci-lint-langserver
       gotools
       nilaway
+      gofumpt
       gopls
       go
       gotestfmt
