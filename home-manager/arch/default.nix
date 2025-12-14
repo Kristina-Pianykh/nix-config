@@ -129,7 +129,9 @@ in
           "brave-browser.desktop:1"
           "kitty.desktop:2"
           "org.telegram.desktop.desktop:3"
-          "md.obsidian.Obsidian:6"
+          # "obsidian.obsidian:6"
+          "obsidian.desktop:6"
+          # "md.obsidian.Obsidian:6"
         ];
       };
     };
