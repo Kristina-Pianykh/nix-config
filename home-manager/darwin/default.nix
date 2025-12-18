@@ -49,6 +49,9 @@ in
       watch
       go-task
       obsidian
+      pkgsUnstable.renovate
+      copier
+      jiratui
 
       (writeShellApplication {
         name = "pr";
@@ -75,7 +78,7 @@ in
           fi
 
           TICKET_LINK="https://goflink.atlassian.net/browse/$TICKET"
-          FIRST_COMMIT_MESSAGE=$(git log main..HEAD --oneline --reverse --format=%s | head -n1)
+          FIRST_COMMIT_MESSAGE=$(git log origin/main..HEAD --oneline --reverse --format=%s | head -n1)
 
           if [[ -z "$FIRST_COMMIT_MESSAGE" ]]; then
             echo "No commits on this branch that diverge from main."
