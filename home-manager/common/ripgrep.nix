@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.ripgrep = {
     enable = true;
     # package = pkgs.ripgrep;
@@ -26,6 +27,12 @@
       "!**/__pycache__"
       "-g"
       "!**/*.pyc"
+      "-g"
+      "!**/node_modules"
+      "-g"
+      "!**/package-lock.json"
+      "-g"
+      "!**/go.mod"
       "--unrestricted"
       "--smart-case"
     ];
