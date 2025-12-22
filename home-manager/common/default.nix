@@ -96,6 +96,7 @@ in
       # Json
       prettierd
       vscode-langservers-extracted
+      vtsls
 
       # C
       astyle
