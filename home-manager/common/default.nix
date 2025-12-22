@@ -81,7 +81,6 @@ in
 
       # Kubernetes
       pkgsUnstable.kubernetes-helm
-      kubernetes
       kustomize
       vcluster
       helm-ls

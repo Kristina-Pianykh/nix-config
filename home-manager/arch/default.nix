@@ -24,6 +24,7 @@ in
     packages = with pkgs; [
       inotify-tools # archie
       calibre
+      kubernetes
     ];
     shellAliases = {
       nix-rebuild = "home-manager switch --flake '${nixConfDir}#krispian'";
