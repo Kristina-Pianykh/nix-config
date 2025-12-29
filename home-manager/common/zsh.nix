@@ -13,7 +13,7 @@
     syntaxHighlighting.enable = true;
     enableCompletion = false;
     history.extended = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
 
     initContent = lib.mkMerge [
       (lib.mkBefore ''

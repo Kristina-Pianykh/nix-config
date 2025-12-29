@@ -2,21 +2,25 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # use for darwin
   # home.packages = with pkgs; [gnupg];
 
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
+  };
   programs.git = {
     enable = true;
-    userName = "Kristina Pianykh";
     # userEmail = "kristinavrnrus@gmail.com";
     # signing = {
     #   key = "C66C7DFC66E169F1";
     #   gpgPath = "/usr/bin/gpg";
     #   signByDefault = true;
     # };
-    diff-so-fancy.enable = true;
-    extraConfig = {
+    settings = {
+      user.name = "Kristina Pianykh";
       init = {
         defaultBranch = "main";
       };

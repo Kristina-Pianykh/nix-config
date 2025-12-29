@@ -58,10 +58,10 @@ in
   ];
 
   programs.git = {
-    userEmail = "kristinavrnrus@gmail.com";
+    settings.user.email = "kristinavrnrus@gmail.com";
     signing = {
       key = "C66C7DFC66E169F1";
-      gpgPath = "${pkgs.gnupg}/bin/gpg";
+      signer = "${pkgs.gnupg}/bin/gpg";
       # gpgPath = "/usr/bin/gpg";
       signByDefault = true;
     };
