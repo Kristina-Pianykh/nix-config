@@ -25,6 +25,7 @@ in
       inotify-tools # archie
       calibre
       kubernetes
+      hostname-debian
     ];
     shellAliases = {
       nix-rebuild = "home-manager switch --flake '${nixConfDir}#krispian'";
