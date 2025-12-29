@@ -40,8 +40,10 @@ in
       "Alt+d" = "close_window";
       "Alt+j" = "next_window";
       "Alt+k" = "previous_window";
-      "Alt+s" = "next_layout";
+      "Alt+s" = "goto_layout vertical";
+      "Alt+a" = "goto_layout tall";
       "Alt+t" = "new_tab";
+      "Alt+x" = "toggle_layout stack";
     };
   };
 
