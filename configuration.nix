@@ -30,6 +30,41 @@
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
 
+  system.keyboard.swapLeftCtrlAndFn = true;
+  system.defaults = {
+    NSGlobalDomain = {
+      AppleShowScrollBars = "Always";
+      NSAutomaticWindowAnimationsEnabled = false;
+      _HIHideMenuBar = true;
+      "com.apple.swipescrolldirection" = false;
+    };
+    WindowManager = {
+      HideDesktop = true;
+      StandardHideDesktopIcons = true;
+    };
+    controlcenter = {
+      BatteryShowPercentage = true;
+      Bluetooth = true;
+    };
+    dock = {
+      autohide = true;
+      expose-animation-duration = null;
+      launchanim = false;
+      magnification = false;
+      show-recents = false;
+      persistent-apps = [
+        {
+          app = "${pkgs.obsidian}/Applications/Obsidian.app";
+        }
+      ];
+    };
+    finder = {
+      CreateDesktop = false;
+      QuitMenuItem = true;
+      ShowPathbar = true;
+    };
+  };
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
