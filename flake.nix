@@ -77,6 +77,7 @@
       darwinConfigurations.flink =
         with buildConf.darwin;
         nix-darwin.lib.darwinSystem {
+          inherit pkgs;
           modules = [
             ./configuration.nix
             mac-app-util.darwinModules.default
