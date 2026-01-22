@@ -1,10 +1,15 @@
-{pkgsUnstable, ...}: {
+{ pkgs, ... }:
+{
   programs.yazi = {
     enable = true;
-    package = pkgsUnstable.yazi;
+    package = pkgs.yazi;
     settings = {
-      manager = {
-        ratio = [1 2 4];
+      mgr = {
+        ratio = [
+          1
+          2
+          4
+        ];
         show_hidden = true;
       };
       preview = {
@@ -15,14 +20,18 @@
     shellWrapperName = "y";
     theme = {
       manager = {
-        cwd = {fg = "#9ccfd8";};
+        cwd = {
+          fg = "#9ccfd8";
+        };
 
         # Hovered
         hovered = {
           fg = "#e0def4";
           bg = "#26233a";
         };
-        preview_hovered = {underline = true;};
+        preview_hovered = {
+          underline = true;
+        };
 
         # Find
         find_keyword = {
@@ -62,7 +71,9 @@
 
         # Border
         border_symbol = "│";
-        border_style = {fg = "#524f67";};
+        border_style = {
+          fg = "#524f67";
+        };
 
         # Highlighting
         syntect_theme = "~/.config/yazi/rose-pine.tmTheme";
@@ -107,40 +118,78 @@
         };
 
         # Permissions
-        permissions_t = {fg = "#31748f";};
-        permissions_r = {fg = "#f6c177";};
-        permissions_w = {fg = "#B4637A";};
-        permissions_x = {fg = "#9ccfd8";};
-        permissions_s = {fg = "#524f67";};
+        permissions_t = {
+          fg = "#31748f";
+        };
+        permissions_r = {
+          fg = "#f6c177";
+        };
+        permissions_w = {
+          fg = "#B4637A";
+        };
+        permissions_x = {
+          fg = "#9ccfd8";
+        };
+        permissions_s = {
+          fg = "#524f67";
+        };
       };
       input = {
-        border = {fg = "#524f67";};
-        title = {};
-        value = {};
-        selected = {reversed = true;};
+        border = {
+          fg = "#524f67";
+        };
+        title = { };
+        value = { };
+        selected = {
+          reversed = true;
+        };
       };
       select = {
-        border = {fg = "#524f67";};
-        active = {fg = "#eb6f92";};
-        inactive = {};
+        border = {
+          fg = "#524f67";
+        };
+        active = {
+          fg = "#eb6f92";
+        };
+        inactive = { };
       };
       tasks = {
-        border = {fg = "#524f67";};
-        title = {};
-        hovered = {underline = true;};
+        border = {
+          fg = "#524f67";
+        };
+        title = { };
+        hovered = {
+          underline = true;
+        };
       };
       which = {
-        mask = {bg = "#313244";};
-        cand = {fg = "#9ccfd8";};
-        rest = {fg = "#9399b2";};
-        desc = {fg = "#eb6f92";};
+        mask = {
+          bg = "#313244";
+        };
+        cand = {
+          fg = "#9ccfd8";
+        };
+        rest = {
+          fg = "#9399b2";
+        };
+        desc = {
+          fg = "#eb6f92";
+        };
         separator = "  ";
-        separator_style = {fg = "#585b70";};
+        separator_style = {
+          fg = "#585b70";
+        };
       };
       help = {
-        on = {fg = "#eb6f92";};
-        exec = {fg = "#9ccfd8";};
-        desc = {fg = "#9399b2";};
+        on = {
+          fg = "#eb6f92";
+        };
+        exec = {
+          fg = "#9ccfd8";
+        };
+        desc = {
+          fg = "#9399b2";
+        };
         hovered = {
           bg = "#585b70";
           bold = true;
