@@ -44,6 +44,7 @@ in
       ngrok
       presenterm
       k6
+      k9s
       pkgsUnstable.gemini-cli
       aerospace
       watch
@@ -51,7 +52,7 @@ in
       obsidian
       pkgsUnstable.renovate
       copier
-      jiratui
+      claude
 
       (writeShellApplication {
         name = "pr";
