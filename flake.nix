@@ -41,6 +41,7 @@
         "vscode"
         "ngrok"
         "obsidian"
+        "claude-code"
       ];
 
       buildInputs = {

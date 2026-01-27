@@ -52,7 +52,7 @@ in
       obsidian
       pkgsUnstable.renovate
       copier
-      claude
+      claude-code
 
       (writeShellApplication {
         name = "pr";
