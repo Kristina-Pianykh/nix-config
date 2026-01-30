@@ -55,7 +55,8 @@ in
     stateVersion = homeManagerStateVersion;
     packages = with pkgs; [
       bat
-      #joypixels
+      wget
+      envsubst
       rustup
       ripgrep
       fd # extends capabilities of rg
