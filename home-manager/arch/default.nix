@@ -143,7 +143,7 @@ in
   };
 
   xdg.enable = true;
-  xdg.configFile."easyeffects/output/advanced-auto-gain.json".source =
+  xdg.dataFile."easyeffects/output/advanced-auto-gain.json".source =
     let
       AAGainFile = pkgs.fetchurl {
         url = "https://github.com/JackHack96/EasyEffects-Presets/raw/834bc5007b976250190cd71937c8c22f182d2415/Advanced%20Auto%20Gain.json";
