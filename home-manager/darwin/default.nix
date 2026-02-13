@@ -118,7 +118,7 @@ in
 
   programs.kitty = {
     keybindings = {
-      "super+x" = "toggle_layout stack";
+      "super+h" = "toggle_layout stack";
       "super+enter" = "new_window_with_cwd";
       "super+d" = "close_window";
       "super+j" = "next_window";

@@ -44,7 +44,7 @@ in
       "Alt+s" = "goto_layout vertical";
       "Alt+a" = "goto_layout tall";
       "Alt+t" = "new_tab";
-      "Alt+x" = "toggle_layout stack";
+      "Alt+h" = "toggle_layout stack";
     };
   };
 
