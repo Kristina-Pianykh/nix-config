@@ -53,6 +53,7 @@ in
       pkgsUnstable.renovate
       copier
       claude-code
+      trivy
 
       (writeShellApplication {
         name = "pr";
