@@ -167,7 +167,7 @@ in
 
   programs.bash.enable = true;
 
-  #fonts.fontconfig.enable = true;
+  # programs.sketchybar.enable = true;
 
   programs.direnv = {
     enable = true;
