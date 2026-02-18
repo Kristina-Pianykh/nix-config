@@ -65,6 +65,27 @@
     };
   };
 
+  # TODO: NIXIFY!!!
+  # https://github.com/amarsyla/hidutil-key-remapping-generator
+  # fucking macos escapes quotes in the command line args
+  # config file ~/Library/LaunchAgents/com.local.KeyRemapping.plist
+  # is managed manually now
+  # https://github.com/nix-darwin/nix-darwin/issues/1566
+  # launchd = {
+  #   user.agents.keyRemap = {
+  #     serviceConfig = {
+  #       Label = "com.local.KeyRemapping";
+  #       ProgramArguments = [
+  #         "/usr/bin/hidutil"
+  #         "property"
+  #         "--set"
+  #         "\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\": 0xFF00000003, \"HIDKeyboardModifierMappingDst\": 0x7000000E0}]}"
+  #       ];
+  #       RunAtLoad = true;
+  #     };
+  #   };
+  # };
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
