@@ -50,7 +50,7 @@ in
       watch
       go-task
       obsidian
-      pkgsUnstable.renovate
+      renovate
       copier
       claude-code
       trivy
