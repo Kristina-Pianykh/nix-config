@@ -113,7 +113,6 @@ in
 
       homebrewPath="/opt/homebrew/bin"
       export PATH="$homebrewPath:$PATH"
-      export PATH="/usr/local/go/bin:$PATH"
       export GOOGLE_CLOUD_PROJECT=flink-gemini-sandbox
     '')
   ];
