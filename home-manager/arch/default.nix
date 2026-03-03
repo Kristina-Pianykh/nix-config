@@ -27,6 +27,7 @@ in
       kubernetes
       hostname-debian
       dig
+      go
     ];
     shellAliases = {
       nix-rebuild = "home-manager switch --flake '${nixConfDir}#krispian'";

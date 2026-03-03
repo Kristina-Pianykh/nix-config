@@ -107,13 +107,13 @@ in
       tflint
 
       # Go
-      pkgsUnstable.golangci-lint
+      # pkgsUnstable.golangci-lint # install as a binary with go install
       golangci-lint-langserver
       gotools
       nilaway
       gofumpt
       gopls
-      go
+      # go
       gotestfmt
 
       # Python
