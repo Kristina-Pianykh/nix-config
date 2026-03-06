@@ -113,7 +113,7 @@ in
       nilaway
       gofumpt
       gopls
-      go
+      go_1_26
       gotestfmt
 
       # Python
