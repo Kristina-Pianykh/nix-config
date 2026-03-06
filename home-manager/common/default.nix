@@ -91,7 +91,7 @@ in
 
       # Yaml
       yaml-language-server
-      yq
+      yq-go
 
       # Json
       prettierd
