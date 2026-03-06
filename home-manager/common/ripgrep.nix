@@ -31,8 +31,8 @@
       "!**/node_modules"
       "-g"
       "!**/package-lock.json"
-      "-g"
-      "!**/go.mod"
+      # "-g"
+      # "!**/go.mod"
       "--unrestricted"
       "--smart-case"
     ];
