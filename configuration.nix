@@ -106,6 +106,7 @@
       "brave-browser"
       "zoom"
       "firefox"
+      "karabiner-elements"
 
       # managed by homebrew now
       "slack"
