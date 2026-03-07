@@ -5,6 +5,28 @@
   ...
 }:
 {
+  home.file."Library/LaunchAgents/com.local.KeyRemapping.plist" = {
+    text = ''
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>com.local.KeyRemapping</string>
+          <key>ProgramArguments</key>
+          <array>
+              <string>/usr/bin/hidutil</string>
+              <string>property</string>
+              <string>--set</string>
+              <string>{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc": 0xFF00000003,"HIDKeyboardModifierMappingDst": 0x7000000E0}]}</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    '';
+  };
+
   home.file."watcher.sh" = {
     text = ''
       #!/usr/bin/env sh
@@ -24,9 +46,9 @@
   };
 
   launchd = {
-    enable = true;
+    enable = false;
     agents."com.local.KeyRemapping" = {
-      enable = true;
+      enable = false;
       config = {
         Label = "com.local.KeyRemapping";
         ProgramArguments = [
