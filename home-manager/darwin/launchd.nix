@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   home.file."watcher.sh" = {
     text = ''
       #!/usr/bin/env sh
@@ -23,7 +24,20 @@
   };
 
   launchd = {
-    enable = false;
+    enable = true;
+    agents."com.local.KeyRemapping" = {
+      enable = true;
+      config = {
+        Label = "com.local.KeyRemapping";
+        ProgramArguments = [
+          "/usr/bin/hidutil"
+          "property"
+          "--set"
+          ''{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc": 0xFF00000003,"HIDKeyboardModifierMappingDst": 0x7000000E0},{"HIDKeyboardModifierMappingSrc": 0x700000064,"HIDKeyboardModifierMappingDst": 0x700000035}]}''
+        ];
+        RunAtLoad = true;
+      };
+    };
     agents."dev.kristina.watcher.plist" = {
       enable = false;
       config = {
@@ -31,7 +45,12 @@
         Label = "dev.kristina.watcher.plist";
         RunAtLoad = true;
         EnvironmentVariables = {
-          PATH = "${lib.makeBinPath [pkgs.bash pkgs.rclone pkgs.coreutils pkgs.fswatch]}";
+          PATH = "${lib.makeBinPath [
+            pkgs.bash
+            pkgs.rclone
+            pkgs.coreutils
+            pkgs.fswatch
+          ]}";
         };
         StandardOutPath = "/tmp/watcher.out.log";
         StandardErrorPath = "/tmp/watcher.err.log";
