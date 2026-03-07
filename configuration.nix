@@ -30,8 +30,7 @@
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
 
-  # handled by manual plist ~/Library/LaunchAgents/com.local.KeyRemapping.plist
-  # system.keyboard.swapLeftCtrlAndFn = true;
+  system.keyboard.swapLeftCtrlAndFn = true;
   system.defaults = {
     NSGlobalDomain = {
       AppleShowScrollBars = "Always";
@@ -66,21 +65,26 @@
     };
   };
 
-  # Key remapping via LaunchDaemon (runs as root, required for hidutil to work)
-  # Fn -> Control, § -> `
-  launchd.daemons.keyRemapping = {
-    serviceConfig = {
-      Label = "com.local.KeyRemapping";
-      ProgramArguments = [
-        "/usr/bin/hidutil"
-        "property"
-        "--set"
-        ''{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc": 0xFF00000003,"HIDKeyboardModifierMappingDst": 0x7000000E0},{"HIDKeyboardModifierMappingSrc": 0x700000064,"HIDKeyboardModifierMappingDst": 0x700000035}]}''
-      ];
-      KeepAlive = true;
-      RunAtLoad = true;
-    };
-  };
+  # TODO: NIXIFY!!!
+  # https://github.com/amarsyla/hidutil-key-remapping-generator
+  # fucking macos escapes quotes in the command line args
+  # config file ~/Library/LaunchAgents/com.local.KeyRemapping.plist
+  # is managed manually now
+  # https://github.com/nix-darwin/nix-darwin/issues/1566
+  # launchd = {
+  #   user.agents.keyRemap = {
+  #     serviceConfig = {
+  #       Label = "com.local.KeyRemapping";
+  #       ProgramArguments = [
+  #         "/usr/bin/hidutil"
+  #         "property"
+  #         "--set"
+  #         "\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\": 0xFF00000003, \"HIDKeyboardModifierMappingDst\": 0x7000000E0}]}"
+  #       ];
+  #       RunAtLoad = true;
+  #     };
+  #   };
+  # };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
