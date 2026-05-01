@@ -21,6 +21,7 @@ let
     ipython = "ipython3";
     gl = "${./git_log_alias.sh}";
     gst = "git status";
+    k = "${pkgs.kubecolor}/bin/kubecolor";
   };
 in
 {
@@ -85,6 +86,7 @@ in
       kustomize
       vcluster
       helm-ls
+      kubecolor
       kubectl
       kind
       etcd
