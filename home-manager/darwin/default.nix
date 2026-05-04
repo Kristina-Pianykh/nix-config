@@ -53,7 +53,7 @@ in
       renovate
       copier
       claude-code
-      trivy
+      pkgsUnstable.trivy
 
       (writeShellApplication {
         name = "pr";

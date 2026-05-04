@@ -30,7 +30,9 @@
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
 
-  system.keyboard.swapLeftCtrlAndFn = true;
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.swapLeftCtrlAndFn = false;
+
   system.defaults = {
     NSGlobalDomain = {
       AppleShowScrollBars = "Always";
