@@ -15,6 +15,9 @@ let
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [
     pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ];
+  go-migrate-pg = pkgs.go-migrate.overrideAttrs (oldAttrs: {
+    tags = [ "postgres" ];
+  });
 in
 {
   imports = [
@@ -54,6 +57,8 @@ in
       copier
       claude-code
       pkgsUnstable.trivy
+      go-migrate-pg
+      pgcli
 
       (writeShellApplication {
         name = "pr";
