@@ -58,7 +58,6 @@ in
       claude-code
       pkgsUnstable.trivy
       go-migrate-pg
-      pgcli
 
       (writeShellApplication {
         name = "pr";
@@ -178,6 +177,16 @@ in
         style = "bold green";
         # symbol = "☸️ ";
         symbol = "⎈ ";
+      };
+    };
+  };
+
+  programs.pgcli = {
+    enable = true;
+    settings = {
+      main = {
+        smart_completion = true;
+        vi = true;
       };
     };
   };
