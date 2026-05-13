@@ -118,6 +118,7 @@ in
       homebrewPath="/opt/homebrew/bin"
       export PATH="$homebrewPath:$PATH"
       export GOOGLE_CLOUD_PROJECT=flink-gemini-sandbox
+      export DOCKER_HOST='unix:///tmp/podman/podman-machine-default-api.sock'
     '')
   ];
 
