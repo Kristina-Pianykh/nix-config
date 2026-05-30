@@ -19,18 +19,31 @@
     };
     shellWrapperName = "y";
     theme = {
-      manager = {
-        cwd = {
-          fg = "#9ccfd8";
-        };
-
-        # Hovered
-        hovered = {
+      indicator = {
+        current = {
           fg = "#e0def4";
           bg = "#26233a";
         };
-        preview_hovered = {
+        preview = {
           underline = true;
+        };
+      };
+
+      tabs = {
+        active = {
+          fg = "#e0def4";
+          bg = "#191724";
+        };
+        inactive = {
+          fg = "#e0def4";
+          bg = "#2A273F";
+        };
+      };
+      # tab_width = 1;
+
+      mgr = {
+        cwd = {
+          fg = "#9ccfd8";
         };
 
         # Find
@@ -58,17 +71,6 @@
           bg = "#B4637A";
         };
 
-        # Tab
-        tab_active = {
-          fg = "#e0def4";
-          bg = "#191724";
-        };
-        tab_inactive = {
-          fg = "#e0def4";
-          bg = "#2A273F";
-        };
-        tab_width = 1;
-
         # Border
         border_symbol = "│";
         border_style = {
@@ -78,29 +80,31 @@
         # Highlighting
         syntect_theme = "~/.config/yazi/rose-pine.tmTheme";
       };
-      status = {
-        separator_open = "";
-        separator_close = "";
-        separator_style = {
-          fg = "#2A273F";
-          bg = "#2A273F";
-        };
 
-        # Mode
-        mode_normal = {
+      mode = {
+        normal_main = {
           fg = "#191724";
           bg = "#ebbcba";
           bold = true;
         };
-        mode_select = {
+        select_main = {
           fg = "#e0def4";
           bg = "#9ccfd8";
           bold = true;
         };
-        mode_unset = {
+        unset_main = {
           fg = "#e0def4";
           bg = "#b4637a";
           bold = true;
+        };
+      };
+
+      status = {
+        separator_left = "";
+        separator_right = "";
+        separator_style = {
+          fg = "#2A273F";
+          bg = "#2A273F";
         };
 
         # Progress
@@ -118,22 +122,23 @@
         };
 
         # Permissions
-        permissions_t = {
+        perm_type = {
           fg = "#31748f";
         };
-        permissions_r = {
+        perm_read = {
           fg = "#f6c177";
         };
-        permissions_w = {
+        perm_write = {
           fg = "#B4637A";
         };
-        permissions_x = {
+        perm_exec = {
           fg = "#9ccfd8";
         };
-        permissions_s = {
+        perm_sep = {
           fg = "#524f67";
         };
       };
+
       input = {
         border = {
           fg = "#524f67";
@@ -144,7 +149,8 @@
           reversed = true;
         };
       };
-      select = {
+
+      pick = {
         border = {
           fg = "#524f67";
         };
@@ -153,6 +159,7 @@
         };
         inactive = { };
       };
+
       tasks = {
         border = {
           fg = "#524f67";
@@ -162,6 +169,7 @@
           underline = true;
         };
       };
+
       which = {
         mask = {
           bg = "#313244";
@@ -180,11 +188,12 @@
           fg = "#585b70";
         };
       };
+
       help = {
         on = {
           fg = "#eb6f92";
         };
-        exec = {
+        run = {
           fg = "#9ccfd8";
         };
         desc = {
@@ -199,6 +208,7 @@
           bg = "#e0def4";
         };
       };
+
       filetype = {
         rules = [
           # Images
@@ -249,12 +259,21 @@
 
           # Fallback
           {
-            name = "*";
+            url = "*";
             fg = "#e0def4";
           }
           {
-            name = "*/";
+            url = "*/";
             fg = "#524f67";
+          }
+          {
+            url = "*";
+            is = "orphan";
+            fg = "red";
+          }
+          {
+            url = "*/";
+            fg = "blue";
           }
         ];
       };
