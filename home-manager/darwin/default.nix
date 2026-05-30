@@ -18,6 +18,19 @@ let
   go-migrate-pg = pkgs.go-migrate.overrideAttrs (oldAttrs: {
     tags = [ "postgres" ];
   });
+  dockerViaPodman =
+    name: binary: extraInputs:
+    pkgs.writeShellApplication {
+      inherit name;
+
+      runtimeInputs = [ pkgs.podman ] ++ extraInputs;
+
+      text = ''
+        PODMAN_SOCKET="$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')"
+        export DOCKER_HOST=unix://"$PODMAN_SOCKET"
+        exec ${binary} "$@"
+      '';
+    };
 in
 {
   imports = [
@@ -57,6 +70,12 @@ in
       claude-code
       trivy
       go-migrate-pg
+
+      (dockerViaPodman "docker" docker [ pkgs.docker ])
+      (dockerViaPodman "docker-compose" docker-compose [
+        pkgs.docker
+        pkgs.docker-compose
+      ])
 
       (writeShellApplication {
         name = "pr";
@@ -117,7 +136,6 @@ in
       homebrewPath="/opt/homebrew/bin"
       export PATH="$homebrewPath:$PATH"
       export GOOGLE_CLOUD_PROJECT=flink-gemini-sandbox
-      export DOCKER_HOST='unix:///tmp/podman/podman-machine-default-api.sock'
     '')
   ];
 

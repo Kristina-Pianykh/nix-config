@@ -64,8 +64,6 @@ in
       fzf
       tree
       jq
-      docker
-      docker-compose
       ccls
       # python311Packages.compiledb
       sops
