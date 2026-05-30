@@ -7,7 +7,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       # defaults to keep if enableDefaultConfig is set to false
       "*" = {
         forwardAgent = false;

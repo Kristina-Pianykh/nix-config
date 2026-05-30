@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
+  # pkgsUnstable,
   lib,
   inputs,
   username,
@@ -72,7 +72,7 @@ in
       openssl
       netcat-gnu
       (bats.withLibraries (p: [ p.bats-assert ]))
-      pkgsUnstable.hugo
+      hugo
       rclone
       codecrafters-cli
       vscode
@@ -82,7 +82,7 @@ in
       pkg-config
 
       # Kubernetes
-      pkgsUnstable.kubernetes-helm
+      kubernetes-helm
       kustomize
       vcluster
       helm-ls
@@ -109,7 +109,7 @@ in
       tflint
 
       # Go
-      pkgsUnstable.golangci-lint
+      golangci-lint
       golangci-lint-langserver
       gotools
       nilaway
@@ -119,7 +119,7 @@ in
       gotestfmt
 
       # Python
-      python311Packages.ipython
+      python313Packages.ipython
       poetry
       pyright
       ruff
@@ -141,7 +141,7 @@ in
       # Nix
       nixd
       alejandra
-      nixfmt-rfc-style
+      nixfmt
 
       # JS
       nodejs_22

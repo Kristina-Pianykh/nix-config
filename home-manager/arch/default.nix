@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
+  # pkgsUnstable,
   lib,
   inputs,
   username,
@@ -68,7 +68,7 @@ in
     };
   };
 
-  programs.ssh.matchBlocks = {
+  programs.ssh.settings = {
     # work = {
     #   host = "work";
     #   hostname = "github.com";
@@ -79,32 +79,23 @@ in
     #     UseKeychain = "yes";
     #   };
     # };
-    server = {
-      host = "disco";
+    "disco" = {
       hostname = "192.168.2.217";
       user = "discoman";
       identitiesOnly = true;
       identityFile = "${config.home.homeDirectory}/.ssh/disco";
     };
-    priv = {
-      host = "priv";
+    "priv" = {
       hostname = "github.com";
       identitiesOnly = true;
       identityFile = "${config.home.homeDirectory}/.ssh/private";
-      extraOptions = {
-        AddKeysToAgent = "yes";
-        # UseKeychain = "yes";
-      };
+      AddKeysToAgent = "yes";
     };
-    gitlab = {
-      host = "gitlab";
+    "gitlab" = {
       hostname = "cfgit.ddnss.de";
       identitiesOnly = true;
       identityFile = "${config.home.homeDirectory}/.ssh/private";
-      extraOptions = {
-        AddKeysToAgent = "yes";
-        # UseKeychain = "yes";
-      };
+      AddKeysToAgent = "yes";
     };
   };
 

@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
+  # pkgsUnstable,
   lib,
   inputs,
   username,
@@ -32,13 +32,12 @@ in
       fswatch
 
       # flink related
-      # podman
       gcloud
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
       nilaway
-      pkgsUnstable.devenv
+      devenv
       devbox
       gh
       teller
@@ -48,7 +47,7 @@ in
       presenterm
       k6
       k9s
-      pkgsUnstable.gemini-cli
+      gemini-cli
       aerospace
       watch
       go-task
@@ -56,7 +55,7 @@ in
       renovate
       copier
       claude-code
-      pkgsUnstable.trivy
+      trivy
       go-migrate-pg
 
       (writeShellApplication {
@@ -192,26 +191,20 @@ in
     };
   };
 
-  programs.ssh.matchBlocks = {
+  programs.ssh.settings = {
     "github.com" = {
-      host = "github.com";
       hostname = "github.com";
       identitiesOnly = true;
       identityFile = "${config.home.homeDirectory}/.ssh/${sshWorkHostAlias}";
-      extraOptions = {
-        AddKeysToAgent = "yes";
-        UseKeychain = "yes";
-      };
+      AddKeysToAgent = "yes";
+      UseKeychain = "yes";
     };
     "${sshWorkHostAlias}" = {
-      host = sshWorkHostAlias;
       hostname = "github.com";
       identitiesOnly = true;
       identityFile = "${config.home.homeDirectory}/.ssh/${sshWorkHostAlias}";
-      extraOptions = {
-        AddKeysToAgent = "yes";
-        UseKeychain = "yes";
-      };
+      AddKeysToAgent = "yes";
+      UseKeychain = "yes";
     };
   };
 }
