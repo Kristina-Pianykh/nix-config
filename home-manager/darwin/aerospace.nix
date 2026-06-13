@@ -5,13 +5,14 @@
 }:
 {
   programs.aerospace.enable = true;
-  programs.aerospace.userSettings = {
+  programs.aerospace.launchd.enable = true;
+  programs.aerospace.settings = {
     # You can use it to add commands that run after AeroSpace startup.
     # Available commands : https://nikitabobko.github.io/AeroSpace/commands
     after-startup-command = [ ];
 
-    # Start AeroSpace at login
-    start-at-login = true;
+    # Let home manager manage AeroSpace launch with launchd.
+    start-at-login = false;
 
     # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
     enable-normalization-flatten-containers = true;

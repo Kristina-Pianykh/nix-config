@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  # pkgsUnstable,
+  pkgsUnstable,
   lib,
   inputs,
   username,
@@ -162,14 +162,14 @@ in
     "ctrl+tab=next_tab"
   ];
 
-  programs.git = {
-    userEmail = "kristina.pianykh@goflink.com";
-    extraConfig.url = {
+  programs.git.settings = {
+    user.email = "kristina.pianykh@goflink.com";
+    url = {
       "git@github.com:goflink" = {
         insteadOf = "https://github.com/goflink";
       };
     };
-    extraConfig.url = {
+    url = {
       "git@${sshWorkHostAlias}:goflink" = {
         insteadOf = "https://github.com/goflink";
       };
