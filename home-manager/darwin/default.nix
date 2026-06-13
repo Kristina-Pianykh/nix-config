@@ -12,8 +12,8 @@ let
   sshWorkHostAlias = "work";
   nixConfDir = "/private/etc/nix-darwin";
   nullPackage = name: pkgs.writeShellScriptBin name "";
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
-    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  gcloud = pkgsUnstable.google-cloud-sdk.withExtraComponents [
+    pkgsUnstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ];
   go-migrate-pg = pkgs.go-migrate.overrideAttrs (oldAttrs: {
     tags = [ "postgres" ];
