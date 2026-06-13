@@ -113,12 +113,12 @@ in
       # Go
       golangci-lint
       golangci-lint-langserver
+      gotestfmt
       gotools
       nilaway
       gofumpt
       gopls
-      go_1_26
-      gotestfmt
+      go
 
       # Python
       python313Packages.ipython
