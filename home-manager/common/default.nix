@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  # pkgsUnstable,
+  pkgsUnstable,
   lib,
   inputs,
   username,
@@ -12,6 +12,9 @@
 let
   # homeDirectory = "/home/${username}";
   nullPackage = name: pkgs.writeShellScriptBin name "";
+  helm = pkgsUnstable.wrapHelm pkgsUnstable.kubernetes-helm {
+    plugins = [ pkgsUnstable.kubernetes-helmPlugins.helm-unittest ];
+  };
   shellAliases = {
     # nvim = "NVIM_APPNAME=neovim-config ${pkgs.neovim}/bin/nvim";
     hs = "home-manager switch";
@@ -80,7 +83,7 @@ in
       pkg-config
 
       # Kubernetes
-      kubernetes-helm
+      helm
       kustomize
       vcluster
       helm-ls
