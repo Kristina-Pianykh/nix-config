@@ -37,6 +37,7 @@ in
     ../common/default.nix
     ./launchd.nix
     ./aerospace.nix
+    ./pgcli.nix
   ];
 
   news.display = "silent";
@@ -195,16 +196,6 @@ in
         style = "bold green";
         # symbol = "☸️ ";
         symbol = "⎈ ";
-      };
-    };
-  };
-
-  programs.pgcli = {
-    enable = true;
-    settings = {
-      main = {
-        smart_completion = true;
-        vi = true;
       };
     };
   };
