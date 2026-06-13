@@ -15,6 +15,16 @@ let
   helm = pkgsUnstable.wrapHelm pkgsUnstable.kubernetes-helm {
     plugins = [ pkgsUnstable.kubernetes-helmPlugins.helm-unittest ];
   };
+  nvim = pkgs.writeShellApplication {
+    name = "nvim";
+    runtimeInputs = [
+      pkgs.neovim
+      pkgs.tree-sitter
+    ];
+    text = ''
+      exec ${pkgs.neovim}/bin/nvim "$@"
+    '';
+  };
   shellAliases = {
     # nvim = "NVIM_APPNAME=neovim-config ${pkgs.neovim}/bin/nvim";
     hs = "home-manager switch";
@@ -78,7 +88,7 @@ in
       rclone
       codecrafters-cli
       vscode
-      neovim
+      nvim
       htop
       podman
       pkg-config
