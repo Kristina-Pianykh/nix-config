@@ -136,7 +136,6 @@ in
     };
   };
 
-  xdg.enable = true;
   xdg.dataFile."easyeffects/output/advanced-auto-gain.json".source =
     let
       AAGainFile = pkgs.fetchurl {

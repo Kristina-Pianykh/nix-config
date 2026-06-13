@@ -54,6 +54,7 @@ in
     # '';
   };
 
+  xdg.enable = true;
   home = {
     # inherit username homeDirectory;
     stateVersion = homeManagerStateVersion;
