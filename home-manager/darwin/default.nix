@@ -110,7 +110,7 @@ in
           fi
 
           gh pr create \
-            --title "[$TICKET]: $FIRST_COMMIT_MESSAGE" \
+            --title "[$TICKET] $FIRST_COMMIT_MESSAGE" \
             --body "[$TICKET]($TICKET_LINK)" \
             --head "$BRANCH" \
             --base main
