@@ -28,7 +28,7 @@ let
       text = ''
         PODMAN_SOCKET="$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')"
         export DOCKER_HOST=unix://"$PODMAN_SOCKET"
-        exec ${binary} "$@"
+        exec ${binary}/bin/${name} "$@"
       '';
     };
 in
