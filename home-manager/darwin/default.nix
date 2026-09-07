@@ -62,6 +62,11 @@ in
       docker
       docker-compose
 
+      gh-stack
+      cloudflared
+      jwt-cli
+      kyverno
+
       (writeShellApplication {
         name = "pr";
 
