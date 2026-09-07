@@ -131,7 +131,8 @@ in
       go
 
       # Python
-      python313Packages.ipython
+      python314
+      python314Packages.ipython
       poetry
       pyright
       ruff
